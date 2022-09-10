@@ -1,6 +1,6 @@
 title: tree
 
-author: 吴俊
+author: arashrun
 
 links:
   github: https://github.com/arashrun
@@ -12,7 +12,7 @@ valine:
     # 评论
     enableComment: true 
     # 阅读量
-    enableCounter: false
+    enableCounter: true
     # valine appID
     appID:
     # valine appKey
@@ -35,8 +35,8 @@ siteStartYear: 2019
 searchEngine: https://www.google.com/search?q=
 homeHost: arashrun.github.io
 
-#tags: true
-#categories: true
+tags: true
+categories: true
 
 # 左侧导航栏，用文件名还是文章名
 sidebar:

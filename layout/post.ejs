@@ -6,6 +6,7 @@
 		<span>
 			阅读量:<span id="<%= url_for(page.path) %>" class="leancloud_visitors" data-flag-title="<%- page.title %>"></span>
 		</span>
+		<br>
 	<% } %>
 	<span><%- config.author %></span>
 	<span><%- date(page.date, "YYYY-MM-DD HH:mm:ss") %></span>
@@ -46,6 +47,7 @@
 	<%- page.content %>
 </div>
 
+
 <% if (is_post()){ %>
     <div class="post-guide">
         <div class="item left">
@@ -59,13 +61,18 @@
         <div class="item right">
             <% if (page.next){ %>
               <a href="<%- url_for(page.next.path) %>">
-                <%- page.next.title || page.next.slug.split("/")[page.prev.slug.split("/").length-1] %>
+                <%- page.next.title || page.next.slug.split("/")[page.next.slug.split("/").length-1] %>
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             <% } %>
         </div>
     </div>
 <% } %>
+
+<br>
+<br>
+<br>
+<br>
 
 <% if (theme.valine.enableComment){ %>
 	<div id="vcomments"></div>

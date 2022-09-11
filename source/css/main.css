@@ -45,8 +45,9 @@ a {
 }
 #menu {
 	position:fixed;
-	padding-right: 20px;
-	right: 0px;
+	/*padding-right: 20px;*/
+	/*right: 0px;*/
+	right: 45%;
 }
 #menu .menu-item {
     display: inline-block;

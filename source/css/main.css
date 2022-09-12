@@ -412,3 +412,37 @@ table td {
 		opacity: 0.95;
 	}
 }
+
+
+#search{
+
+}
+
+#search input{
+	width: 50%;
+	height: 40px;
+	margin-top: 50px;
+
+	border-bottom: 2px solid #ff8c00;
+	border-top:0px;  
+	border-left:0px;  
+	border-right:0px; 
+	text-align: center;
+	/*input不要弹出提示框*/
+	autocomplete: off;
+}
+
+#search input:focus {
+	outline: none;
+	border-bottom: 2px solid #ff8c00;
+}
+
+#search input::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    color: #aab2bd;
+    /* placeholder字体大小  */
+    font-size: 18px;
+    /* placeholder位置  */
+    text-align: center;
+}
+

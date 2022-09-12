@@ -2,6 +2,7 @@ $(document).ready(function () {
   hljs.initHighlightingOnLoad();
   clickTreeDirectory();
   serachTree();
+  searchEngin();
   pjaxLoad();
   showArticleIndex();
   switchTreeOrIndex();
@@ -179,6 +180,43 @@ function pjaxLoad() {
       }
       wrapImageWithFancyBox();
     }
+  });
+}
+
+function cleanSearchResults() {
+  $("#result-list").empty();
+}
+
+function showSearchResults(t) {
+
+    let li = $("<li></li>");
+    li.attr("class", "match-item");
+
+    let a = $("<a></a>");
+    a.text(t.name);
+    a.attr("href", t.url);
+    li.append(a);
+    // 将动态创建的li插入到ul的最后方
+    $("#result-list").append(li);
+}
+
+function searchEngin() {
+
+  $('.search-engine').on('input', function(e) {
+    e.preventDefault();
+
+    // 获取 inpiut 输入框的内容并开始搜索
+    var inputContent = e.currentTarget.value;
+    var patt = new RegExp(inputContent, 'i');
+    // titlesList在search.ejs中通过ejs定义了
+    let obj = [];
+    cleanSearchResults();
+    titlesList.forEach(t => {
+      // if(t["name"].search('/'+inputContent+'/i') != -1 && inputContent != "") {
+        if(patt.test(t["name"]) && inputContent != "") {
+        showSearchResults(t);
+      }
+    });
   });
 }
 

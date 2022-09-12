@@ -1,0 +1,37 @@
+
+
+<h1 align="center">文章搜索</h1>
+
+
+<div id="article-content">
+
+<div id="search" align="center">
+   <input type="text" class="search-engine" id="search-engine" placeholder="回车搜索文章" />
+</div>
+
+<div id="search-result"></div>
+<ul id="result-list">
+
+</ul>
+</div>
+
+
+<h1 align="center">常用链接</h1>
+<br>
+<br>
+
+<%- page.content %>
+
+
+<script>
+var titlesList = [];
+let obj = {};
+
+<% for(var i = 0 ;i < site.posts.length; i++) {%>
+<% let name = site.posts.data[i].source.split("/")[site.posts.data[i].source.split("/").length-1]; %>
+   obj['name'] = "<%= name.substring(0, name.length-3); %>";
+   obj['url'] = "<%= site.posts.data[i].path %>";
+   titlesList.push(obj);
+   obj = {};
+<% } %>
+</script>

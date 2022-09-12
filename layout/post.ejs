@@ -1,3 +1,4 @@
+
 <h1 id="article-title">
 	<%- page.title || page.slug.split("/")[page.slug.split("/").length-1] %>
 </h1>
@@ -26,7 +27,7 @@
                 <% } %>
             <% } %>
     <% } %>
-
+    <br>
     <% if (page.tags) { %>
 		<span>Tags：</span>
             <% for (var j=0; j < page.tags.data.length; j++) { %>

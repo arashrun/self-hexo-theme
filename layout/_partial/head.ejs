@@ -45,6 +45,7 @@
 		if(typeof homeHost == "undefined" || homeHost == null || homeHost == ""){
 			homeHost = window.location.host;
 		}
+
 	</script>
 
 
@@ -58,6 +59,7 @@
 	<%- js('https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js') %>
 	<%- js('https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js') %>
 	<%- js('js/main.js') %>
+	<%- js('js/ejs.js') %>
 	<% if (theme.valine){ %>
 		<%- js('https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js') %>
 		<%- js('https://cdn.jsdelivr.net/npm/valine@v1.4.14/dist/Valine.min.js') %>

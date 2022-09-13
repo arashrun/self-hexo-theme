@@ -3,7 +3,7 @@ $(document).ready(function () {
   clickTreeDirectory();
   serachTree();
   searchEngin();
-  pjaxLoad();
+  // pjaxLoad();
   showArticleIndex();
   switchTreeOrIndex();
   scrollToTop();

@@ -12,7 +12,11 @@
 	<div id="content">
 		<%- body %>
 	</div>
+	<% if(page.layout != "about"){ %>
 	<%- partial('_partial/footer.ejs') %>
+	<% } %>
 	<%- partial('_partial/totop') %>
 </body>
+
+
 </html>

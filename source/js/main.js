@@ -3,6 +3,7 @@ $(document).ready(function () {
   clickTreeDirectory();
   serachTree();
   searchEngin();
+  makeToc();
   // pjaxLoad();
   showArticleIndex();
   switchTreeOrIndex();
@@ -10,6 +11,7 @@ $(document).ready(function () {
   pageScroll();
   wrapImageWithFancyBox();
 });
+
 
 // 页面滚动
 function pageScroll() {
@@ -218,6 +220,40 @@ function searchEngin() {
       }
     });
   });
+}
+
+function makeToc() {
+  $('#toc-toggle').on('click',function(e) {
+
+    if ($('#artical-toc').children().length !=0) {
+      if ($('#artical-toc').is(":visible")) {
+        //hidden
+        $('#artical-toc').hide();
+      }else {
+        $('#artical-toc').show();
+      }
+    }else {
+      var chi = $('#article-content').children(":header");
+      chi.each(function() {
+        let prefix = parseInt(this.nodeName.substring(1));
+        let text = this.firstChild.innerText;
+        let fontsize = 18 - 2*prefix;
+
+          let li = $("<li></li>");
+          li.attr("class", "toc-item");
+          li.css("font-size", fontsize);
+
+          let a = $("<a></a>");
+          // a.text('|'+'--'.repeat(prefix)+text);
+          a.text('|'+''.repeat(prefix)+text);
+          a.attr("href", "./#"+text);
+          li.append(a);
+          // 将动态创建的li插入到ul的最后方
+          $("#artical-toc").append(li);
+      });  
+    }
+
+  })
 }
 
 // 搜索框输入事件

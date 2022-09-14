@@ -1,24 +1,38 @@
 
 
+<%# 通过page.tag获得当前所在页面的tag，例如/tags/hexo路径，page.tag就是hexo。而/tags/路径，page.tag就是空的。如此就可以区分tag页面了
 
+其实不同布局页面变量是一种继承结构
+所有的布局页面其实都是page，然后index，post，archive，categories，tag这些布局页面其实都是继承自page的。
+
+%>
+
+
+<% if(!page.tag) { %>
 <h1 id="article-title">
-	<i class="fa fa-tags" aria-hidden="true"></i>TAGS
+  <i class="fa fa-tags" aria-hidden="true"></i>TAGS
 </h1>
 <h2 id="article-title">
-	目前共计 <%- site.tags.data.length %> 个标签
+  目前共计 <%- site.tags.data.length %> 个标签
 </h2>
-
 <div id="article-content">
-	<ul>
+    <ul>
       <% for (var j=0; j < site.tags.data.length; j++) { %>
           <% if (site.tags.data[j] && site.tags.data[j].name) { %>
             <li class="menu-item">
                 <span>
-                      <a href="/<%- site.tags.data[j].path %>"><%- site.tags.data[j].name %>(<%- site.tags.data[j].length %>)</a>
+                      <a href="<%- url_for(site.tags.data[j].path) %>"><%- site.tags.data[j].name %>(<%- site.tags.data[j].length %>)</a>
                 </span>
             </li>
           <% } %>
       <% } %>
-	</ul>
+  </ul>
 </div>
+<% }else {%>
+<h1 align="center">
+<%= page.tag %>
+</h1>
 
+<%- partial('index.ejs') %>
+
+<% } %>

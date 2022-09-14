@@ -66,7 +66,7 @@ a {
 /* sidebar */
 #totop-toggle{
 	position: fixed;
-    bottom: 80px;
+    bottom: 70px;
     right: 50px;
 }
 #sidebar-toggle{
@@ -75,11 +75,12 @@ a {
 	position: absolute;
 }
 .toggle {
+	background: #100f2c;
 	border: none;
 	height: 45px;
 	width: 45px;
 	border-radius: 50%;
-	background-color: rgba(0,0,0,0.5);
+	/*background-color: rgba(0,0,0,0.5);*/
 	color: #fff;
 	transition: all 0.3s ease-in-out;
 	opacity: 0.5;
@@ -198,11 +199,17 @@ a {
 /* index */
 #content{
 	max-width: 900px;
-	top: 50px;
+/*	top: 50px;
 	flex-grow: 1;
 	flex-shrink: 1;
-	flex-basis: 0;
+	flex-basis: 0;*/
 	margin: 80px auto 30px auto;
+	/*margin: auto;*/
+	padding:auto 10px auto 10px;
+}
+
+#index {
+	margin: auto 15px;
 }
 .index-li {
 	margin: 20px 0 20px 0;

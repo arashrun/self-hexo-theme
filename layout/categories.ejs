@@ -1,3 +1,7 @@
+
+<%# 路径/categories/linux/会跳转到archive界面，不同于tags页面中/tags/vim/还是跳转到tags布局页面 %>
+
+
 <h1 id="article-title">
 	<i class="fa fa-folder-open" aria-hidden="true"></i>分类
 </h1>
@@ -11,7 +15,7 @@
           <% if (site.categories.data[j] && site.categories.data[j].name) { %>
             <li class="menu-item">
                 <span>
-                    <a href="/<%- site.categories.data[j].path %>"><%- site.categories.data[j].name %>(<%- site.categories.data[j].length %>)</a>
+                    <a href="<%- url_for(site.categories.data[j].path) %>"><%- site.categories.data[j].name %>(<%- site.categories.data[j].length %>)</a>
                 </span>
             </li>
           <% } %>

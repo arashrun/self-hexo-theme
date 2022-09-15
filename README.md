@@ -7,7 +7,7 @@ Fork from：[https://wujun234.github.io/](https://wujun234.github.io/)
 ## TODOLIST:
 
 - [x] 关灯
-- [ ] 友链内容扩展
+- [x] 友链内容扩展
 - [x] post导航目录
 
 

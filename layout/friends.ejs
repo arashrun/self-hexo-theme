@@ -1,0 +1,33 @@
+
+<h1 align="center">友情链接</h1>
+
+<div id="article-content">
+
+	<%- page.content %>
+<video id="player" controls="" autoplay src="https://www.xc6b.com/content/templates/XCNEW/tools/sister_video?_t=0.7264398317944376"></video>
+
+</div>
+
+<script>
+var get = function(id) {
+	return document.getElementById(id);
+}
+var bind = function(element, event, callback) {
+	return element.addEventListener(event, callback);
+}
+var auto = true;
+var player = get('player');
+var randomm = function() {
+	player.src = 'https://www.xc6b.com/content/templates/XCNEW/tools/sister_video?_t=' + Math.random();
+	player.play();
+}
+//bind(get('next'), 'click', randomm);
+bind(player, 'ended', function() {
+		randomm();
+		});
+bind(player, 'error', function() {
+	randomm();
+		});
+
+
+</script>

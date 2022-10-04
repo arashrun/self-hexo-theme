@@ -237,16 +237,25 @@ function makeToc() {
       chi.each(function() {
         let prefix = parseInt(this.nodeName.substring(1));
         let text = this.firstChild.innerText;
-        let fontsize = 18 - 2*prefix;
+        let color;
 
+        switch(prefix) {
+          case 1:
+              color = "green";
+              break;
+          case 2:
+              color = "red";
+              break;
+        }
+        console.log(color);
           let li = $("<li></li>");
           li.attr("class", "toc-item");
-          li.css("font-size", fontsize);
 
           let a = $("<a></a>");
           // a.text('|'+'--'.repeat(prefix)+text);
           a.text('|'+''.repeat(prefix)+text);
           a.attr("href", "./#"+text);
+          a.css("color", color);
           li.append(a);
           // 将动态创建的li插入到ul的最后方
           $("#artical-toc").append(li);

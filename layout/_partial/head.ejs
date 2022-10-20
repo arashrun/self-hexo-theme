@@ -69,4 +69,8 @@
 	<% if (theme.busuanzi){ %>
 		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 	<% } %>
+	<% if (theme.gitalk.enable) { %>
+		<%- css('https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css') %>
+		<%- js('https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js') %>
+	<% } %>
 </head>

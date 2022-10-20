@@ -10,7 +10,7 @@ favicon: /favicon.ico
 # valine 
 valine:
     # 评论
-    enableComment: true 
+    enableComment: false 
     # 阅读量
     enableCounter: true
     # valine appID
@@ -19,6 +19,14 @@ valine:
     appKey:
     placeholder: 请输入评论
     avatar: retro
+
+gitalk:
+    enable: true
+    clientID: d91e94a64a0bd6162192
+    clientSecrets: dea5446950bd4dbd03f7c459e78838a581b4658c
+    github_repo: https://github.com/arashrun/hexo_comments
+    repo_owner: arashrun
+    distractionFreeMoe: true
 
 # 是否开启“不蒜子”统计访问量
 busuanzi: true

@@ -24,7 +24,7 @@ gitalk:
     enable: true
     clientID: d91e94a64a0bd6162192
     clientSecrets: dea5446950bd4dbd03f7c459e78838a581b4658c
-    github_repo: https://github.com/arashrun/hexo_comments
+    github_repo: hexo_comments
     repo_owner: arashrun
     distractionFreeMoe: true
 

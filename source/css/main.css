@@ -9,6 +9,20 @@ html{
 	font-family: Source Code Pro,microsoft yahei,helvetica,simhei,simsun,sans-serif;
 }
 
+body {
+	background: #3a3530 url(images/bg-tile.jpg) repeat left top;
+	background-image: url(images/bg-tile.jpg);
+	background-position-x: left;
+	background-position-y: top;
+	background-size: initial;
+	background-attachment: initial;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: rgb(58, 53, 48);
+
+
+}
+
 a {
     color: #069;
     text-decoration: none;
@@ -206,6 +220,7 @@ a {
 	margin: 80px auto 30px auto;
 	/*margin: auto;*/
 	padding:auto 10px auto 10px;
+	
 }
 
 #index {

@@ -1,14 +1,21 @@
 
-
 <h1 align="center">关于本站</h1>
 
 <div id="article-content">
 
 	<%- page.content %>
-<br>
-<br>
-<br>
-<br>
-<img src= "http://api.muvip.cn//api/bing/index.php?rand=false&day=0&size=1920x1080&info=false" height="100px">
-
 </div>
+
+<script>
+
+var url = 'https://v.api.aa1.cn/api/api-fj-1/index.php?aa1=url';
+
+$.get(url, function(data){
+	let src = data.split('\n')
+	console.log(src);
+	let u = 'https:'+src[3];
+	$('body').css("background-image", "url("+ u +")");
+		});
+
+	$('#index').css('background', 'rgba(255, 255, 255, .7)');
+</script>

@@ -22,6 +22,7 @@
 	<%- partial('_partial/totop') %>
 </body>
 
+<% if(page.layout != "about"){ %>
 <script type="text/javascript"> 
 	const options = {
 	  bottom: '64px', // default: '32px'
@@ -38,5 +39,5 @@
 	}
 	new Darkmode(options).showWidget();
 </script>
-
+<% } %>
 </html>

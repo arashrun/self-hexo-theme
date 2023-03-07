@@ -223,46 +223,41 @@ function searchEngin() {
 }
 
 function makeToc() {
-  $('#toc-toggle').on('click',function(e) {
+	var chi = $('#article-content').children(":header");
+	chi.each(function() {
+		let text = $(this).attr('id');
+		//console.log(text);
+		let li = $("<li></li>");
 
-    if ($('#artical-toc').children().length !=0) {
-      if ($('#artical-toc').is(":visible")) {
-        //hidden
-        $('#artical-toc').hide();
-      }else {
-        $('#artical-toc').show();
-      }
-    }else {
-      var chi = $('#article-content').children(":header");
-      chi.each(function() {
-        let prefix = parseInt(this.nodeName.substring(1));
-        let text = this.firstChild.innerText;
-        let color;
+		let a = $("<a></a>");
+		a.attr("class", "toc-link");
+		a.attr("href", "#"+text);
+		a.html(text)
+		li.append(a);
+		// 将动态创建的li插入到ul的最后方
+		$("nav>ul").append(li);
+	});  
+	// 监听浏览器滚动条，当浏览过的标签，给他上色。
+	$(window).on("scroll", function () {
+		let headerHeightList = [];
+		let windowTop = $(window).scrollTop();
+		var anchorList = $('#article-content').children(":header");
+		anchorList.each(function (index, e) {
+			let anchorTop = $(this).offset().top;
+			headerHeightList.push(anchorTop);
+		});
+		headerHeightList.forEach(function(v, i, a){
+			if (windowTop<a[i+1] && windowTop >= v) {
+				$('.toc-link').get(i).setAttribute('class', 'toc-link read');
+			}else{
+				$('.toc-link').get(i).setAttribute('class', 'toc-link');
+			}
+		})
+		if (windowTop >= headerHeightList[headerHeightList.length-1]) {
+			$('.toc-link').get(headerHeightList.length-1).setAttribute('class', 'toc-link read');
+		}
+	});
 
-        switch(prefix) {
-          case 1:
-              color = "green";
-              break;
-          case 2:
-              color = "red";
-              break;
-        }
-        console.log(color);
-          let li = $("<li></li>");
-          li.attr("class", "toc-item");
-
-          let a = $("<a></a>");
-          // a.text('|'+'--'.repeat(prefix)+text);
-          a.text('|'+''.repeat(prefix)+text);
-          a.attr("href", "./#"+text);
-          a.css("color", color);
-          li.append(a);
-          // 将动态创建的li插入到ul的最后方
-          $("#artical-toc").append(li);
-      });  
-    }
-
-  })
 }
 
 // 搜索框输入事件

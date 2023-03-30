@@ -1,9 +1,10 @@
 $(document).ready(function () {
-  hljs.initHighlightingOnLoad();
+  //hljs.initHighlightingOnLoad();
   clickTreeDirectory();
   serachTree();
   searchEngin();
   makeToc();
+	wrapblockquote();
   // pjaxLoad();
   showArticleIndex();
   switchTreeOrIndex();
@@ -258,6 +259,20 @@ function makeToc() {
 		}
 	});
 
+}
+
+function wrapblockquote() {
+	const blockquotes = document.getElementsByTagName('blockquote');
+	for (let i = 0; i < blockquotes.length; i++) {
+		const firstP = blockquotes[i].getElementsByTagName('p')[0];
+		let a = firstP.innerText;
+		a = a.toLowerCase();
+		let name = a.replace("[!", "").replace("]", "")
+		firstP.innerText = name.charAt(0).toUpperCase() + name.slice(1);
+		firstP.classList.add(name)
+		blockquotes[i].classList.add(name);
+		console.log(name);
+	}
 }
 
 // 搜索框输入事件

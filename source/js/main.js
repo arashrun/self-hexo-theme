@@ -9,7 +9,7 @@ $(document).ready(function () {
   showArticleIndex();
   switchTreeOrIndex();
   scrollToTop();
-  pageScroll();
+  // pageScroll();
   wrapImageWithFancyBox();
 });
 
@@ -128,19 +128,19 @@ function showArticleIndex() {
     });
 
     // 监听浏览器滚动条，当浏览过的标签，给他上色。
-    // $(window).on("scroll", function (e) {
-    //   var anchorList = $(".anchor");
-    //   anchorList.each(function () {
-    //     var tocLink = $('.article-toc a[href="#' + $(this).attr("id") + '"]');
-    //     var anchorTop = $(this).offset().top;
-    //     var windowTop = $(window).scrollTop();
-    //     if (anchorTop <= windowTop + 100) {
-    //       tocLink.addClass("read");
-    //     } else {
-    //       tocLink.removeClass("read");
-    //     }
-    //   });
-    // });
+    $(window).on("scroll", function (e) {
+      var anchorList = $(".anchor");
+      anchorList.each(function () {
+        var tocLink = $('.article-toc a[href="#' + $(this).attr("id") + '"]');
+        var anchorTop = $(this).offset().top;
+        var windowTop = $(window).scrollTop();
+        if (anchorTop <= windowTop + 100) {
+          tocLink.addClass("read");
+        } else {
+          tocLink.removeClass("read");
+        }
+      });
+    });
   }
   $(".article-toc.active-toc").show();
   $(".article-toc.active-toc").children().show();
@@ -239,25 +239,25 @@ function makeToc() {
 		$("nav>ul").append(li);
 	});  
 	// 监听浏览器滚动条，当浏览过的标签，给他上色。
-	// $(window).on("scroll", function () {
-	// 	let headerHeightList = [];
-	// 	let windowTop = $(window).scrollTop();
-	// 	var anchorList = $('#article-content').children(":header");
-	// 	anchorList.each(function (index, e) {
-	// 		let anchorTop = $(this).offset().top;
-	// 		headerHeightList.push(anchorTop);
-	// 	});
-	// 	headerHeightList.forEach(function(v, i, a){
-	// 		if (windowTop<a[i+1] && windowTop >= v) {
-	// 			$('.toc-link').get(i).setAttribute('class', 'toc-link read');
-	// 		}else{
-	// 			$('.toc-link').get(i).setAttribute('class', 'toc-link');
-	// 		}
-	// 	})
-	// 	if (windowTop >= headerHeightList[headerHeightList.length-1]) {
-	// 		$('.toc-link').get(headerHeightList.length-1).setAttribute('class', 'toc-link read');
-	// 	}
-	// });
+	$(window).on("scroll", function () {
+		let headerHeightList = [];
+		let windowTop = $(window).scrollTop();
+		var anchorList = $('#article-content').children(":header");
+		anchorList.each(function (index, e) {
+			let anchorTop = $(this).offset().top;
+			headerHeightList.push(anchorTop);
+		});
+		headerHeightList.forEach(function(v, i, a){
+			if (windowTop<a[i+1] && windowTop >= v) {
+				$('.toc-link').get(i).setAttribute('class', 'toc-link read');
+			}else{
+				$('.toc-link').get(i).setAttribute('class', 'toc-link');
+			}
+		})
+		if (windowTop >= headerHeightList[headerHeightList.length-1]) {
+			$('.toc-link').get(headerHeightList.length-1).setAttribute('class', 'toc-link read');
+		}
+	});
 
 }
 

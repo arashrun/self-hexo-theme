@@ -128,19 +128,19 @@ function showArticleIndex() {
     });
 
     // 监听浏览器滚动条，当浏览过的标签，给他上色。
-    $(window).on("scroll", function (e) {
-      var anchorList = $(".anchor");
-      anchorList.each(function () {
-        var tocLink = $('.article-toc a[href="#' + $(this).attr("id") + '"]');
-        var anchorTop = $(this).offset().top;
-        var windowTop = $(window).scrollTop();
-        if (anchorTop <= windowTop + 100) {
-          tocLink.addClass("read");
-        } else {
-          tocLink.removeClass("read");
-        }
-      });
-    });
+    // $(window).on("scroll", function (e) {
+    //   var anchorList = $(".anchor");
+    //   anchorList.each(function () {
+    //     var tocLink = $('.article-toc a[href="#' + $(this).attr("id") + '"]');
+    //     var anchorTop = $(this).offset().top;
+    //     var windowTop = $(window).scrollTop();
+    //     if (anchorTop <= windowTop + 100) {
+    //       tocLink.addClass("read");
+    //     } else {
+    //       tocLink.removeClass("read");
+    //     }
+    //   });
+    // });
   }
   $(".article-toc.active-toc").show();
   $(".article-toc.active-toc").children().show();

@@ -1,43 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+    <%- partial('_partial/head') %>
 
-<%- partial('_partial/head') %>
+    <body>
+        <%- partial('_partial/header.ejs') %> <%#
+        partial('_partial/sidebar.ejs') %> <%- partial('_partial/toc.ejs') %>
 
-<body>
-	<%- partial('_partial/header.ejs') %>
-	<%# partial('_partial/sidebar.ejs') %>
+        <!-- 引入正文 -->
+        <div id="content">
+            <div id="index"><%- body %></div>
+        </div>
+        <% if(page.layout != "about"){ %> <%- partial('_partial/footer.ejs') %>
+        <% } %> <%- partial('_partial/totop') %>
+    </body>
 
-	<%- partial('_partial/toc.ejs') %>
-	
-
-	<!-- 引入正文 -->
-	<div id="content">
-		<div id="index">
-		<%- body %>
-		</div>
-	</div>
-	<% if(page.layout != "about"){ %>
-	<%- partial('_partial/footer.ejs') %>
-	<% } %>
-	<%- partial('_partial/totop') %>
-</body>
-
-<% if(page.layout != "about"){ %>
-<script type="text/javascript"> 
-	const options = {
-	  bottom: '64px', // default: '32px'
-	  right: 'unset', // default: '32px'
-	  left: '32px', // default: 'unset'
-	  time: '0.5s', // default: '0.3s'
-	  mixColor: '#fff', // default: '#fff'
-	  backgroundColor: '#fff',  // default: '#fff'
-	  buttonColorDark: '#100f2c',  // default: '#100f2c'
-	  buttonColorLight: '#fff', // default: '#fff'
-	  saveInCookies: false, // default: true,
-	  label: '🌓', // default: ''
-	  autoMatchOsTheme: true // default: true
-	}
-	new Darkmode(options).showWidget();
-</script>
-<% } %>
+    <% if(page.layout != "about"){ %>
+    <script type="text/javascript">
+        //todo
+    </script>
+    <% } %>
 </html>
+
+<script type="text/javascript">
+      let filename_url = {};
+
+      <% for(var i = 0 ;i < site.posts.length; i++) {%>
+      <% let name = site.posts.data[i].source.split("/")[site.posts.data[i].source.split("/").length-1]; %>
+     key = "<%= name.substring(0, name.length-3); %>";
+    value = "<%= site.posts.data[i].path %>";
+    filename_url[key] = value
+      <% } %>
+</script>

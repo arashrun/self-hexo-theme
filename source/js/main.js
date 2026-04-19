@@ -294,8 +294,22 @@ function makeToc() {
     var chi = $('#article-content').children(':header')
     chi.each(function () {
         let text = $(this).attr('id')
-        //console.log(text);
+        let tag = this.tagName.toLowerCase()
+        let level = 1
+        if (tag === 'h2') {
+            level = 2
+        } else if (tag === 'h3') {
+            level = 3
+        } else if (tag === 'h4') {
+            level = 4
+        } else if (tag === 'h5') {
+            level = 5
+        } else if (tag === 'h6') {
+            level = 6
+        }
+
         let li = $('<li></li>')
+        li.addClass('toc-level toc-level-' + level)
 
         let a = $('<a></a>')
         a.attr('class', 'toc-link')
